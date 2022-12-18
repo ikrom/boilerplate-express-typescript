@@ -1,3 +1,3 @@
-export const hello = (log: string): void => {
-    console.log(log)
+export default function hello(log: string): void {
+  console.log(log);
 }

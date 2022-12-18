@@ -1,30 +1,44 @@
 {
-  "name": "swc-ts",
-  "version": "1.0.0",
-  "description": "",
+  "name": "boilerplate-express-ts",
+  "version": "0.0.1",
+  "description": "boilerplate express using typescript, zod, swc, jest",
   "main": "main.js",
   "scripts": {
-    "dev": "concurrently \"yarn watch-compile\" \"yarn watch-dev\"",
-    "watch-compile": "swc src -w --out-dir dist",
+    "dev": "concurrently \"pnpm watch-compile\" \"pnpm watch-dev\" --raw",
+    "watch-compile": "swc src -w -d dist",
     "watch-dev": "nodemon --watch \"dist/**/*\" -e js ./dist/main.js",
     "build": "swc src -d dist",
     "start": "NODE_ENV=production node dist/main.js",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "eslint --ext .ts src --fix"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "keywords": [],
-  "author": "",
+  "author": "ichrome.fahdi@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.164",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.46.1",
     "chokidar": "^3.5.3",
     "concurrently": "^7.1.0",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-standard-with-typescript": "^24.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
     "nodemon": "^2.0.15",
-    "typescript": "^4.6.3"
+    "typescript": "*"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "zod": "^3.20.2"
   }
 }
